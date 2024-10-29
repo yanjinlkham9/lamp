@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+@font-face {
+    font-family: 'YeongamWolchulsanTTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/YeongamWolchulsanTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GumiIndustryTTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/GumiIndustryTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/* body{
+    background-color: skyblue;
+}*/
+body{
+    font-family: "GumiIndustryTTF", sans-serif;
+}
+.font-link{
+    font-family: "Hi Melody", sans-serif;
+}
+
+.font-import{
+    font-family: "Hi Melody", sans-serif;    
+}
+  
+
+.noonnu_font{
+    font-family: 'YeongamWolchulsanTTF', sans-serif;
+        
+}
+
+.container{
+    background-color: gold;
+    /* 글자색은 상속된다 cascading */
+    color: gray;
+}
+
+.container > .sentences{
+    /* weight: 글씨 굵기 100-900까지 */
+    font-weight: 700;
+    /* size default 16px;  */
+    font-size: 16px;
+    /* font-size: 1rem; */
+    /* font-size: 1em; */
+
+    /* text-align: 정렬 right, left */
+    text-align: center;
+
+    /* text-decoration: 꾸미기 속성 */
+    /* text-decoration: line-through; */
+    /* text-decoration: underline; */
+    /* text-decoration: overline; */
+
+    /* line-height: 줄간 간격 기본: 1.4 */
+    line-height: 1;
+    line-height: 2;
+    list-style: none;
+
+
+}
+
+.test{
+    width:100px;
+    height: 100px;
+    background-color: greenyellow;
+    text-align: center;
+    /* 글의 한줄일 때는 새로기준 가운데 정렬로 사용 */
+    line-height: 100px;
+}
+
+.container a{
+    color: gray;
+    text-decoration: none;
+    /* 색상 지정 방법
+    - 색상 이름 설정: red, skyblue, purple etc
+    - rgb 함수로 설정: rgb(숫자, 숫자, 숫자): 0-255까지 숫자가 들어감
+            -rgba(): a는 투명도 지정
+    - #NNNNNN: red, green, blue랑 관련된 숫자 2개씩
+        - rgb(0,0,0): black : #000000
+        -rgb(255,255,255): white : #FFFFFF
+        - o-9와 a,b,c,d,e,f로 이루어진 수
+    */
+}

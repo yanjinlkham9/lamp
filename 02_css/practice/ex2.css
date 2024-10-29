@@ -1,0 +1,32 @@
+.box{
+    background-color: orange;
+    width: auto;
+    height: 200px;
+}
+
+.html{
+    display: inline-block;
+    background-color: aqua;
+    width:200px;
+    height: 100px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.css{
+    background-color: green;
+    width:200px;
+    height: 100px;
+    text-align: center;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+.javascript{
+    background-color: red;
+    width:200px;
+    height: 100px;
+    text-align: center;
+    margin-right: 30px;
+    display: inline-block;
+}
