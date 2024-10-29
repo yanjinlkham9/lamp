@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>tag 사용해보기</title>
+    </head>
+    <body>
+       <h1>안녕하세요. h1입니다</h1>
+       <h2>안녕하세요. h2입니다</h2>
+       <h3>안녕하세요. h3입니다</h3>
+       <h4>안녕하세요. h4입니다</h4>
+       <h5>안녕하세요. h5입니다</h5>
+       <h6>안녕하세요. h6입니다</h6>
+       <p>오늘은 낡씨가 좋습니다. 첫번째 수업은 html..<br/>
+        재미있군요!!
+       </p>
+       <hr/>
+
+       <!--순서가 있는 list, 순서가 없는 list-->
+       <h3>icelatte making</h3>
+       <!-- 순서 있는 ol type 1(default), a, A, i, I-->
+       <ol type="i">
+            <li><b>우유</b>를 <strong>컵</strong>에 넣습니다</li>
+            <li><i>얼음</i>을 넣습니다</li>
+            <li><em>espresso shot</em>을 넣기</li>
+       </ol>
+
+       <h3>오늘 할 일</h3>
+       <!--순서 없는 ul type disc (default)circle square -->
+       <ul type="square">
+        <li><u>html</u> 배우기</li>
+        <li>운동하기</li>
+        <li><del>맛있는</del> 점심 먹기</li>
+       </ul>
+
+       <!--list 중첩해보기-->
+       <ul>
+        <h3>내가 좋아하는 음식</h3>
+        <li>양식</li>
+            <ul type="circle">
+                <li>스파게티</li>
+                <li>steak</li>
+            </ul>
+        <li>일식</li>
+            <ul type="circle">
+                <li>돈까스</li>
+                <li>라멘</li>
+            </ul>
+       </ul>
+
+       <p>안녕하세요.   .</p>
+       <pre>안녕하세요.         .</pre>
+       <details>
+        <summary>summary에 제목을 쓰면 돼요</summary>
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et doloremque aspernatur odit aut perspiciatis delectus necessitatibus veritatis quos. Voluptate obcaecati architecto maxie necessitatibus. Laborum voluptatum vero, accusamus cupiditate quis aliquid.
+        </div>
+       </details>
+
+       <hr>
+       <h2>img tag and a tag</h2>
+       <!--img tag 필수속성: src, alt-->
+       <!--a tag 필수속성: href-->
+       
+       <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg" 
+       alt="고양의 사진" width="200" />
+       <!--절대경로, /의 의미가 매번 달라질 수 있음-->
+       <img src="/01_html/Winnie_the_Pooh.webp" alt="푸 사진" width="100">
+       <!--상대경로, .이 자신이 있는 위치를 가리킴-->
+       <img src="./Winnie_the_Pooh.webp" alt="푸 사진" width="100">
+
+       <br>
+       <!--a tag 필수속성: href-->
+       <a href="http://www.naver.com" target="_blank">네이버로 이동</a>
+       <a href="./start.html" target="_self">start html로 이동</a>
+
+       <br>
+       <hr>
+       <!--간단 실습-->
+       <a href="http://www.google.com" target="_blank">
+       <img src="./piglet.jfif" alt="piglet 사진" width="150">
+       </a>
+    </body>
+</html>
