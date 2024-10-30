@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background: 실습</title>
+    <style>
+        .background{
+
+            width: 290px;
+            height: 290px;
+            background:linear-gradient(#FFE600, #FF0080, #DB20DB);
+            border-radius: 50%;
+            position: relative;
+        }
+        .background1{
+            width: 270px;
+            height: 270px;
+            background-color: white;
+            background-image: url('/img/26139_img.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 10px;
+            border: 5px solid white;    
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="background1"></div>
+    </div>
+</body>
+</html>

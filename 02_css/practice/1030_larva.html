@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습: Larva</title>
+    <style>
+        .back{
+            position: relative;
+            width: 900px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        .circle1{
+            background-color: #0030a8;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 100px;
+            left: 120px;
+        }
+        .circle2{
+            background-color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            top: 130px;
+            left: 130px;
+            z-index: 9;
+        }
+        .circle3{
+            background-color: black;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            position: absolute;
+            top: 134px;
+            left: 131px;
+            z-index: 10;
+        }
+        .circle4{
+            background-color: #0042cf;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 150px;
+            left: 180px;
+
+        }
+        .circle5{
+            background-color: #0067e1;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 195px;
+            left: 220px;
+        }
+        .circle6{
+            background-color: #0081e7;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 245px;
+            left: 240px;
+        }
+        .circle7{
+            background-color: #489ee1;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            position: absolute;
+            top: 280px;
+            left: 290px;
+            z-index: 4;
+        }
+        .background{
+            background-image: url('/img/grass.png');
+            width: 500px;
+            height: 140px;
+            position: absolute;
+            top: 260px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <div class="circle6"></div>
+        <div class="circle7"></div>
+        <div class="background"></div>
+    </div>
+</body>
+</html>
