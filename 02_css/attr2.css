@@ -40,3 +40,43 @@
         padding: 10px;
         margin: 10px;
     }
+
+    .parent{
+        width: 500px;
+        height: 250px;
+        background-color: red;
+    }
+
+    /* hamgiin bagadaa 400px l bolno, ternees bainga tom bna */
+    .parent > .min{
+        min-width: 400px;
+        height: 100px;
+        background-color: orange;
+    }
+
+    /* hamgiin ihdee 400px hurtel tomrono, hemjee n 400px-s baga bna*/
+    .parent > .max{ 
+        max-width: 400px;
+        height: 100px;
+        background-color: violet;
+    }
+
+    /* 단위 확인 */
+    .box{
+        background-color: beige;
+        border: 1px solid black;
+
+    }
+    .box-px{
+        width: 50px;
+        height: 50px;
+    }
+    .box-view{
+        width: 50vw;
+        height: 50vh;
+    }
+    .box-per{
+        width: 50%;
+        height: 50%;
+
+    }
