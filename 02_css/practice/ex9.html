@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box 실습</title>
+    <style>
+        .vis{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+
+        }
+
+        .vis:hover{
+             visibility: hidden;
+        }
+
+        .border{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            border-radius: 10px;
+        }
+        .width{
+            border-width: 5px 10px 15px 25px;
+            border-color: green;
+        }
+        .style{
+            border-color: blue;
+            border-style: solid dashed solid dashed;
+        }
+        .color{
+            border-color: gray red;
+        }
+        .zug{
+            border-top-style: solid;
+            border-left-color:aqua;
+            border-bottom-width:60px;
+            border-right-style: dashed;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="vis"></div>
+    <br/>
+    <div class="border zug"></div>
+    <div class="border width"></div>
+    <div class="border style" ></div>
+    <div class="border color "></div>
+</body>
+</html>
