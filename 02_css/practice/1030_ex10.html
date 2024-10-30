@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position 실습</title>
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: cornflowerblue;
+            position: relative;
+        }
+        .position1{
+            background-color: bisque;
+            position:relative;
+            left: 50px;
+            top: 30px;
+        }
+        .position2{
+            background-color: aquamarine;
+            position: absolute;
+            right: 30px;
+            bottom: 100px;
+        }
+        .position3{
+            background-color: blueviolet;
+            position: fixed;
+            right: 100px;
+            bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="position1">item 1</div>
+        <div class="position2">item 2</div>
+        <div class="position3">item 3</div>
+    </div>
+</body>
+</html>

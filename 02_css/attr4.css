@@ -1,0 +1,50 @@
+.box{
+    display: inline-block;
+    width: 400px;
+    height: 800px;
+    border: 1px solid black;
+}
+
+.background{
+    background-color: aquamarine;
+    background: palegoldenrod;
+
+    /* 단축기 color image repeat position/size .. */
+    background: linear-gradient(to right, black, white);
+
+}
+
+.background-image{
+    background-image: url('/img/small_img.png');
+
+    /* background-repeat*/
+    background-repeat: repeat ;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
+
+    /* background-position */
+    background-position: top left;
+    background-position: center;
+    background-position: top center;
+    background-position: 100px;
+    background-position: 100px 10px; /*x,y daraalaltai*/
+    background-position: top left;
+
+    /* background-size */
+    background-size: auto; /*원본 사이즈 유지*/
+    /* size neg bichvel x측 설정되고 세로는 비율에 맞게 설정 */
+    background-size: 50px;
+    background-size: 100px 200px;
+    background-size: contain;
+    background-size: cover;
+    
+
+    /* background-attachment */
+    background-attachment: scroll;
+    background-attachment: fixed;
+
+}
+body{
+    height: 1000px;
+}
