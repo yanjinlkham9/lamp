@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3: flex-wrap</title>
+    <style>
+         .container{
+            width: 500px;
+            height: 500px;
+            background-color: aquamarine;
+            display: flex;
+            flex-direction: row;
+            /* flex-wrap: nowrap; 1줄 */
+            flex-wrap: wrap;
+            align-items: flex-start;
+            /* align-content: flex-start; */
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            
+        }
+        .item1{
+            background-color: brown;
+        }
+        .item2{
+            background-color: palevioletred;
+        }
+        .item3{
+            background-color: khaki;
+        }
+        .item4{
+            background-color: rebeccapurple;
+        }
+        .item5{
+            background-color: blue;
+        }
+        .item6{
+            background-color: olivedrab;
+        }
+        .item7{
+            background-color: darkcyan;
+        }
+        .item8{
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
+        <div class="item item5"></div>
+        <div class="item item6"></div>
+        <div class="item item7"></div>
+        <div class="item item8"></div>
+    </div>
+</body>
+</html>
