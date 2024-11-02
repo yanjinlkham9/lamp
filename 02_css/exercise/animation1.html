@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation: 실습1</title>
+    <style>
+    .ball{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background: linear-gradient(yellow, orange);
+        position: relative;
+        
+        animation-name: ani;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+    }
+    @keyframes ani{
+        0%{
+            left: 0px;
+        }
+
+        25%{
+            left: 200px;
+        }
+
+        50%{
+            left: 900px;
+        }
+
+        75%{
+            left: 200px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="ball">
+
+    </div>
+</body>
+</html>
