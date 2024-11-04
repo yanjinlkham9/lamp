@@ -40,7 +40,7 @@
     - space-evenly: item의 모든 여백을 공평하게 나눔
     - space-around: 양끝 영역의 단위가 1이라면 나머지 영역의 단위는 2이다
     */
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     /* justify-content: flex-end; */
     /* justify-content: center; */
     /* justify-content: space-between; */

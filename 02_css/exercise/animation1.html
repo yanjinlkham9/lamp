@@ -5,42 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animation: 실습1</title>
     <style>
-    .ball{
-        width: 100px;
-        height: 100px;
-        border: 1px solid black;
-        border-radius: 50%;
-        background: linear-gradient(yellow, orange);
-        position: relative;
-        
-        animation-name: ani;
-        animation-duration: 8s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .ball{
+            position:absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background: linear-gradient(45deg, yellow, orange, 70%, orangered);
+            
+            animation-name: animm;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
 
-    }
-    @keyframes ani{
+        }
+    @keyframes animm{
         0%{
-            left: 0px;
+            transform: translate(0px);
+
+/* left: 0; */
+/* top: 0; */
         }
 
         25%{
-            left: 200px;
+            transform: translate(calc(100vw - 100px), 0px);
+
+          /* left: calc(100vw - 100px); */
+          /* top: 0; */
         }
 
         50%{
-            left: 900px;
+             /* left: calc(100vw - 100px); */
+          /* top: calc(100vh - 100px); */
+          transform: translate(calc(100vw - 100px), calc(100vh - 100px));
+
         }
 
         75%{
-            left: 200px;
+             /* left: 0; */
+          /* top: calc(100vh - 100px); */
+          transform: translate(0, calc(100vh - 100px));
+        }
+        100%{
+             /* left: 0; */
+          /* top: 0; */
+          transform: translate(0, 0);
+
         }
     }
     </style>
 </head>
 <body>
-    <div class="ball">
-
+    <div class="container">
+        <div class="ball"></div>
     </div>
 </body>
 </html>
