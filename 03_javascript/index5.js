@@ -51,3 +51,20 @@ for(let i= 0; i < arr.length; i++){
     summ = summ + arr[i]
 }
 console.log(summ)
+
+//1이상 20이하의 수 중에서 짝수만 더한 값 출력하기
+let sum3 = 0
+for(let i = 1; i <=20; i++)
+{
+    if(i%2===0)
+    {
+        sum3=sum3+i
+    }
+}
+console.log(sum3)
+
+let sum4=0
+for(let i = 0; i <= 20; i+=2){
+    sum4 = sum4 + i
+}
+console.log(sum4)
