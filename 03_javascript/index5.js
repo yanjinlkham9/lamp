@@ -68,3 +68,69 @@ for(let i = 0; i <= 20; i+=2){
     sum4 = sum4 + i
 }
 console.log(sum4)
+
+
+//continue
+let sum5 = 0
+//홀수의 합을 구하기
+for(let i=0; i<10; i++){
+    // if(i%2===1) sum5+=1
+    if(i%2===0) continue //다음반복으로 넘어가기
+    sum5 = sum5 + i
+}
+console.log(sum5) //0-10까지의 홀수 합 25
+
+for(let i=0; i<5; i++){
+    console.log('------')
+    console.log(i)
+    for(let j=0; j<5; j++){
+        console.log('j: ', j)
+    }
+}
+
+for(let i=2; i<10; i++){
+    console.log(i+'단')
+    for(let j=1; j<10; j++){
+        console.log(i,'X',j,'=',i*j)
+    }
+}
+
+//2.while 문
+/*
+*/
+
+// let n1 = 1
+// while(n1<=5){
+//     console.log(n1)
+//     n1++
+// }
+
+// let n2 = 9
+// while(n2 >= 5){
+//     console.log(n2)
+//     n1--   
+// }
+
+// let n3= 10
+// while(n3>=1){
+//     if(n3%2===1){
+//         console.log(n3)
+//     }
+//     n3--
+// }
+
+// let a=0
+// while(true){
+//     console.log(a)
+//     a++
+//     if(a>10){
+//         break
+//     }
+// }
+
+let a2 = 0
+while(confirm("계속 진행하시겠습니까?")){
+    //확인>true, 취소>false
+    a2++
+    alert(`${a2}번째 alert 창`)
+}
