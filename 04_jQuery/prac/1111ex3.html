@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <style>
+        h2{
+            color: green;
+            text-align: center;
+        }
+        .sun{
+            color:red;
+        }
+        .sat{
+            color: blue;
+        }
+        td{
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    날짜: <input type="text" id="day">
+    <br/>
+    내용: <input type="text" id="content">
+    <br/>
+    <button id="btn">작성</button>
+    <h2>2024년 11월</h2>
+    <table id="table"  width="400px" height="400px" align="center">
+        <tr>
+            <td class="sun">일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td class="sat">토</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="day1">1</td>
+            <td class="day2 sat">2</td>
+        </tr>
+        <tr>
+            <td class="day3 sun">3</td>
+            <td class="day4">4</td>
+            <td class="day5">5</td>
+            <td class="day6">6</td>
+            <td class="day7">7</td>
+            <td class="day8">8</td>
+            <td class="day9 sat">9</td>
+        </tr>
+        <tr>
+            <td class="day10 sun">10</td>
+            <td class="day11">11</td>
+            <td class="day12">12</td>
+            <td class="day13">13</td>
+            <td class="day14">14</td>
+            <td class="day15">15</td>
+            <td class="day16 sat">16</td>
+        </tr>
+        <tr>
+            <td class="day17 sun">17</td>
+            <td class="day18">18</td>
+            <td class="day19">19</td>
+            <td class="day20">20</td>
+            <td class="day21">21</td>
+            <td class="day22">22</td>
+            <td class="day23 sat">23</td>
+        </tr>
+        <tr>
+            <td class="day24 sun">24</td>
+            <td class="day25">25</td>
+            <td class="day26">26</td>
+            <td class="day27">27</td>
+            <td class="day28">28</td>
+            <td class="day29">29</td>
+            <td class="day30 sat">30</td>
+        </tr>
+    </table>
+</body>
+
+</html>
