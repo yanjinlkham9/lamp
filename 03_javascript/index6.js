@@ -98,6 +98,7 @@ console.log(arr2.shift()) //제거하는 값 반환하면서 실제 값을 삭�
 console.log(arr2)
 
 // 배열 .includes(요소) 배열의 요소가 있는지 없는지 확인
+console.log('includes??')
 console.log(arr2.includes("cat"))
 console.log(arr2.includes("quakka"))
 
