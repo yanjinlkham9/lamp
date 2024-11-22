@@ -3,34 +3,34 @@ function call(name) {
     setTimeout(function () {
       console.log(name);
       resolve(name);
-      console.log(name, "반가워");
     }, 1000);
   });
 }
-function back(txt) {
+function back() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
-      console.log(txt);
-      resolve(txt);
-      console.log(txt, "을 실행했구나");
+      console.log("back");
+      resolve("back");
     }, 1000);
   });
 }
 
-function hell(msg) {
+function hell() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
-      resolve(msg);
-      console.log("여기는", msg);
+      resolve("call back hell");
     }, 1000);
   });
 }
 
 //async await
 async function exec() {
-  await call("kim");
-  await back("back");
-  await hell("callback hell");
+  const name = await call("kim");
+  console.log(name + "반가원");
+  const txt = await back();
+  console.log(txt, "을 실행했구나");
+  const msg = await hell();
+  console.log("여기는", msg);
 }
 
 exec();

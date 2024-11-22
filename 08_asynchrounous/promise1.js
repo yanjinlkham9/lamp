@@ -3,37 +3,37 @@ function call(name) {
     setTimeout(function () {
       console.log(name);
       resolve(name);
-      console.log(name, "반가워");
     }, 1000);
   });
 }
-function back(txt) {
+function back() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
-      console.log(txt);
-      resolve(txt);
-      console.log(txt, "을 실행했구나");
+      console.log("back");
+      resolve("back");
     }, 1000);
   });
 }
 
-function hell(msg) {
+function hell() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
-      resolve(msg);
-      console.log("여기는", msg);
+      resolve("callback hell");
     }, 1000);
   });
 }
 
 //promise
 call("kim")
-  .then(function (result) {})
-  .then(function (txt) {
-    txt = "back";
-    console.log(txt, "을 실행했구나");
+  .then(function (result) {
+    console.log(result, "반가워");
+    return back();
   })
-  .then(function (msg) {
-    msg = "callback hell";
+  .then(function (txt) {
+    // txt = 이전 then의 리턴값 = "back"
+    console.log(txt, "을 실행했구나");
+    return hell();
+  })
+  .then((msg) => {
     console.log("여기는", msg);
   });
