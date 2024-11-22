@@ -75,6 +75,7 @@ app.post("/practice4", function (req, res) {
   console.log(req.body);
   res.render("practice/practice_result.ejs", {
     userInfo: req.body,
+    addInfo: true,
   });
 });
 // 8080-r oroh servert holbogdoh

@@ -5,25 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Result</title>
     <style>
-      span {
+      /* span {
         color: orange;
+        font-weight: 700;
+      } */
+      .box {
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
       }
     </style>
   </head>
   <body>
     <h2>결과 확인하기</h2>
+    <!-- addInfo=false -->
     <p><span><%=userInfo.name%></span>님 환영합니다!</p>
-    <p>성별:<%=userInfo.gender%></p>
-    <p>
+    <p class="box">성별:<%=userInfo.gender%></p>
+    <p class="box">
       생년월일: <%=userInfo.year%>년<%=userInfo.month%>월<%=userInfo.day%>일
     </p>
-    <p>관심사: <%=userInfo.fav%></p>
+    <p class="box">관심사: <%=userInfo.fav%></p>
     <hr />
 
+    <!-- addInfo=true -->
+    <%if(addInfo){%>
     <h3>다른 태그 작성해보기</h3>
-    <p>좋아하는 색갈: <span><%=userInfo.color%></span></p>
-    <p>좋아하는 숫자:<%=userInfo.num%></p>
-
+    <p>좋아하는 색갈: <span class="color"><%=userInfo.color%></span></p>
+    <p>좋아하는 숫자: <%=userInfo.num%></p>
+    <p>다짐 한마디: <%=userInfo.comment%></p>
+    <%}%>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const colorSpan = document.querySelector(".color");
+        colorSpan.style.color = "<%=userInfo.color%>";
+      });
+    </script>
     <a href="/">홈으로 이동</a>
   </body>
 </html>
