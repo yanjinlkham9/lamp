@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice1</title>
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>실습문제1</h1>
+    <form name="practice">
+      <label> 이름: <input type="text" name="name" /> </label>
+      <br />
+      <fieldset>
+        <legend>성별</legend>
+        <label
+          ><input type="radio" name="gender" id="radio1" value="남자" />남자
+        </label>
+        <label
+          ><input type="radio" name="gender" id="radio2" value="여자" />여자
+        </label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>생년월일</legend>
+        <label
+          ><select name="year">
+            <%for(let year=1980; year<2011; year++){%>
+            <option value="<%=year%>"><%=year%></option>
+            <%}%></select
+          >년</label
+        >
+        <label
+          ><select id="month" name="month">
+            <%for(month=1; month<13; month++){%>
+            <option value="<%=month%>"><%=month%></option>
+            <%}%></select
+          >월</label
+        >
+        <label
+          ><select id="day" name="day">
+            <%for(day=1; day<32; day++){%>
+            <option value="<%=day%>"><%=day%></option>
+            <%}%></select
+          >일</label
+        >
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>관심사</legend>
+        <label><input type="checkbox" name="fav" value="여행" />여행 </label>
+        <label><input type="checkbox" name="fav" value=" 패션" />패션 </label>
+        <label><input type="checkbox" name="fav" value=" 음식 " />음식</label>
+      </fieldset>
+      <br />
+      <button type="button" onclick="axiosGet()">axios get</button>
+    </form>
+    <div class="result"></div>
+    <script>
+      function axiosGet() {
+        const form = document.forms["practice"];
+        const result = document.querySelector(".result");
+        const favs = [];
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+          fav: favs,
+        };
+        //checkbox ued form.fav.value gj handval bolohgui. hooson utga garch irne
+
+        for (let fa of form.fav) {
+          if (fa.checked) {
+            favs.push(fa.value);
+          }
+        }
+        // form.fav.forEach((input) => {
+        //   if (input.checked) favs.push(input.value);
+        // });
+        // console.log(favs);
+        axios({
+          method: "get",
+          url: "/axios-practice",
+          params: data,
+        }).then(function (res) {
+          console.log(res.data);
+          console.log(res.data.name);
+          const { name, fav } = res.data;
+          result.innerText = `${name}님 환영합니다~ 가입 완료되었습니다. 취미는${fav}`;
+        });
+      }
+    </script>
+  </body>
+</html>

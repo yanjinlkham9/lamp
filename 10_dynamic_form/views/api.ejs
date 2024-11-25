@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>외부 API 사용</title>
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>간단 Open API 사용하기</h1>
+    <h3>고양이 사진 바꾸기</h3>
+    <img src="" alt="기본 이미지" id="img" />
+    <button onclick="changeCatImage();">고양이 사진 변경</button>
+    <h3>영화 제목 가져오기</h3>
+    <ul>
+      <!-- <div>
+        <img src="영화이미지" alt="" />
+        <p>영화제목</p>
+      </div> -->
+    </ul>
+    <script>
+      //https://api.thecatapi.com/v1/images/search
+      function changeCatImage() {
+        fetch("https://api.thecatapi.com/v1/images/search")
+          .then(function (res) {
+            console.log(res);
+            return res.json();
+          })
+          .then(function (data) {
+            //api가 주는 데이터 타입을 확인해야 접근
+            console.log(data);
+            const img = document.getElementById("img");
+            img.src = data[0].url;
+            img.alt = `${data[0].id}-cat-img`;
+            img.width = 400;
+          });
+      }
+      //API key: 2e2df2bd    &s=title
+      //http://www.omdbapi.com/?apikey=[yourkey]&
+      const word = "iron";
+
+      axios({
+        method: "get",
+        url: "http://www.omdbapi.com/?apikey=2e2df2bd&s=" + word,
+      }).then(function (res) {
+        console.log(res.data); //{Search, totalResults, Response}
+        //배열 {Poster, Title, Type, Year, imbdID}
+        console.log(res.data.Search);
+
+        const ul = document.querySelector("ul");
+        // for (let movie of res.data.Search) {
+        //   //   console.log(movie.Title); //제목
+        //   //   console.log(movie.Poster); //이미지
+        //   //   console.log(movie.imdbID); //ID
+        //   //ul>div>img+p
+
+        //   img.src = movie.Poster;
+        //   img.alt = movie.imdbID + "movie image";
+        //   p.innerText = movie.Title;
+        //   div.append(img, p);
+        //   ul.append(div);
+        // }
+
+        for (let i = 0; i < res.data.Search.length; i++) {
+          const div = document.createElement("div");
+          const img = document.createElement("img");
+          const p = document.createElement("p");
+          img.src = res.data.Search[i].Poster;
+          p.textContent = res.data.Search[i].Title;
+          div.append(img, p);
+          ul.append(div);
+        }
+      });
+    </script>
+  </body>
+</html>
