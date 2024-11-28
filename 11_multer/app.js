@@ -28,18 +28,20 @@ const uploadDetail = multer({
     },
     filename: function (req, file, done) {
       // const extension = path.extname(파일이름.확장자) >> 확장자만 리턴
+      //done-g uursduu tohiruulj bolno cb function
       const extension = path.extname(file.originalname); //.png, .webp,...
       //path.basename(파일이름.확장자, 확장자) >> 파일이름만 리턴
       done(
         null,
         path.basename(file.originalname, extension) + Date.now() + extension
+        //Date.now(): adilhan nertei bol davhtsuulahguigeer ognoo bichj ugnu
       );
 
       console.log("path.basename", path.basename(file.originalname, extension));
       console.log("path.extname", path.extname(file.originalname));
     },
   }),
-  limits: { fieldSize: 5 * 1024 * 1024 },
+  limits: { fieldSize: 5 * 1024 * 1024 }, //5MB
 });
 /* API */
 app.get("/", (req, res) => {
@@ -104,8 +106,10 @@ app.post(
 //동적폼 파일 업로드
 app.post("/dynamicUpload", uploadDetail.single("dynamicFile"), (req, res) => {
   console.log(req.file);
-
-  res.send(req.file);
+  console.log(req.body);
+  //하나의 객체에 합쳐서 보내는 방법
+  // res.send({ ...req.body, ...req.file });
+  res.send({ file: req.file, fileInfo: req.body });
 });
 
 app.listen(PORT, () => {
