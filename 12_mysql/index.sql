@@ -127,5 +127,63 @@ LIMIT 3;
 
 SELECT * FROM user;
 
+/* update 문:
+- UPDATE table name
+- SET column="바꿀 데이터"
+- WHERE ID=1 */
+UPDATE user SET address="서울특별시 도봉구" WHERE ID=1;
+UPDATE user SET address="제주특별자치도 제주시", name="이지현" WHERE ID=2;
+/* delete 문:
+- DELETE FROM tablename WHERE 조건 */
+DELETE FROM user WHERE id=11;
+DELETE FROM user WHERE id>8;
+CREATE TABLE student(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(10) NOT NULL DEFAULT "홍길동",
+    hobby VARCHAR(20)
+);
+DESC student;
+INSERT INTO student(hobby) VALUES('등산');
+INSERT INTO student(name, hobby) VALUES('박상우', '등산');
 
-CREATE DATABASE practice DEFAULT CHARACTER utf8 DEFAULT COLLATE utf8_general_ci;
+SELECT * FROM student;
+
+/* GROUP BY and HAVING
+- 
+ */
+ DROP Table if EXISTS user; 
+ CREATE TABLE user (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(10) NOT NULL,
+    specialize ENUM('축구', '야구', '클라이밍', '배드민턴') NOT NULL,
+    gender ENUM('남', '여') NOT NULL,
+    career_year INT NOT NULL
+ );
+ DESC user;
+ INSERT INTO user VALUES(NULL, '김판곤', '축구', '남', 40);
+INSERT INTO user VALUES(NULL, '손흥민', '축구', '남',15);
+INSERT INTO user VALUES(NULL, '김자인', '클라이밍', '여',10);
+INSERT INTO user VALUES(NULL, '김동우', '축구', '남',1);
+INSERT INTO user VALUES(NULL, '전유진', '배드민턴', '여',2);
+INSERT INTO user VALUES(NULL, '이대호', '야구', '남',24);
+INSERT INTO user VALUES(NULL, '안세영', '배드민턴', '여',11);
+INSERT INTO user VALUES(NULL, '배서연', '클라이밍', '여',3);
+INSERT INTO user VALUES(NULL, '황희찬', '축구', '남',9);
+INSERT INTO user VALUES(NULL, '지소연', '축구', '여',17);
+INSERT INTO user VALUES(NULL, '이정후', '야구', '남',11);
+INSERT INTO user VALUES(NULL, '김광현', '야구', '남',21);
+SELECT * FROM user;
+
+--집계 함수 사용
+SELECT COUNT(specialize) FROM user WHERE specialize='축구';
+SELECT SUM(career_year) FROM user WHERE specialize='축구'; 
+SELECT AVG(career_year) FROM user WHERE specialize='축구'; 
+SELECT MAX(career_year) FROM user WHERE specialize='축구'; 
+SELECT MIN(career_year) FROM user WHERE specialize='축구'; 
+--group by
+SELECT specialize FROM user GROUP BY specialize;
+SELECT specialize, COUNT(specialize) FROM user GROUP BY specialize;
+--having
+SELECT specialize, COUNT(specialize) FROM user WHERE gender = "여" GROUP BY specialize;
+SELECT specialize, COUNT(specialize) FROM user WHERE gender = "여" GROUP BY specialize HAVING COUNT(specialize) >=2;
+--그룹화 된 테이블에 조건을 다는 것: HAVING
