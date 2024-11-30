@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVC 실습1</title>
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      label {
+        display: flex;
+      }
+      label span {
+        width: 80px;
+      }
+      .result {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="login">
+      <label>아이디: <input type="text" name="userId" /></label> <br />
+      <label>비밀번호: <input type="password" name="userPw" /> <br /> </label>
+      <button type="button" onclick="ccclogin()">login</button>
+    </form>
+    <div class="result"></div>
+
+    <script>
+      function ccclogin() {
+        const form = document.forms["login"];
+        const result = document.querySelector(".result");
+        const data = {
+          userId: form.userId.value,
+          userPw: form.userPw.value,
+        };
+
+        axios({
+          url: "/register",
+          method: "post",
+          data: data,
+        })
+          .then((res) => {
+            console.log(res.data.isSuccess);
+            if (res.data.isSuccess) {
+              result.textContent = `${res.data.userId}님 로그인 성공~!`;
+            } else {
+              result.textContent = "아이디 또는 패스워드 오류입니다";
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    </script>
+  </body>
+</html>
