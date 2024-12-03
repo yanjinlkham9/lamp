@@ -13,16 +13,28 @@
       label span {
         width: 80px;
       }
-      .result {
+      .success {
+        color: blue;
+        font-weight: 700;
+      }
+      .error {
         color: red;
+        font-weight: 700;
       }
     </style>
   </head>
   <body>
     <form name="login">
-      <label>아이디: <input type="text" name="userId" /></label> <br />
-      <label>비밀번호: <input type="password" name="userPw" /> <br /> </label>
-      <button type="button" onclick="ccclogin()">login</button>
+      <label
+        ><span>아이디:</span> <input type="text" name="userId" required
+      /></label>
+      <br />
+      <label
+        ><span>비밀번호: </span
+        ><input type="password" name="userPw" required /> <br />
+      </label>
+      <button type="button" onclick="ccclogin()">login1</button>
+      <button type="button" onclick="clickLogin2()">login2</button>
     </form>
     <div class="result"></div>
 
@@ -34,7 +46,11 @@
           userId: form.userId.value,
           userPw: form.userPw.value,
         };
-
+        // console.log(data);
+        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+          result.textContent = "아이디와 비밀번호는 필수값입니다";
+          return;
+        }
         axios({
           url: "/register",
           method: "post",
@@ -44,13 +60,49 @@
             console.log(res.data.isSuccess);
             if (res.data.isSuccess) {
               result.textContent = `${res.data.userId}님 로그인 성공~!`;
+              result.classList.add("success");
+              result.classList.remove("error");
             } else {
               result.textContent = "아이디 또는 패스워드 오류입니다";
+              result.classList.add("success");
+              result.classList.remove("error");
             }
           })
           .catch((err) => {
             console.error(err);
           });
+      }
+
+      async function clickLogin2() {
+        const result = document.querySelector(".result");
+        const form = document.forms["login"];
+        const data = {
+          userId: form.userId.value,
+          userPw: form.userPw.value,
+        };
+        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+          result.textContent = "아이디와 비밀번호는 필수값입니다";
+          return;
+        }
+        try {
+          const response = await axios({
+            method: "post",
+            url: " /register2/",
+            data,
+          });
+          console.log(response.data);
+          if (response.data.isSuccess) {
+            result.textContent = `${response.data.userName}님 로그인 성공~!`;
+            result.classList.add("success");
+            result.classList.remove("error");
+          } else {
+            result.textContent = "아이디 또는 패스워드 오류입니다";
+            result.classList.add("success");
+            result.classList.remove("error");
+          }
+        } catch (err) {
+          console.log(error);
+        }
       }
     </script>
   </body>
