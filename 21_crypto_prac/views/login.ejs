@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login page</h1>
+    <form name="login">
+      ID:
+      <input type="text" name="id" />
+      Password:
+      <input type="password" name="pw" />
+      <button type="button" onclick="login()">Login</button>
+    </form>
+    <script>
+      async function login() {
+        const form = document.forms["login"];
+        await axios({
+          method: "post",
+          url: "/login",
+          data: {
+            userid: form.data.id,
+            pw: form.data.pw,
+          },
+        }).then((res) => {
+          console.log(res);
+          const { data } = res;
+          console.log(data);
+          if (data) {
+            alert("로그인 성공");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
