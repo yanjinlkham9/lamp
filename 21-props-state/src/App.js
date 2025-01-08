@@ -1,4 +1,5 @@
 import { ClassProps, ClassProps2 } from "./components/ClassProps";
+import ClassState from "./components/ClassState";
 import {
   FunctionProps,
   FunctionProps2,
@@ -9,6 +10,7 @@ import {
 function App() {
   return (
     <div>
+      <h2>Props 사용</h2>
       <h3>class형 props 사용해보기</h3>
       <ClassProps name="루피" color="pink" nickname="공주" />
 
@@ -23,6 +25,9 @@ function App() {
       <FunctionProps4 name="샤인머스캣">
         <span style={{ color: "red" }}>childrennn요소입니다 </span>{" "}
       </FunctionProps4>
+
+      <h2>State사용</h2>
+      <ClassState></ClassState>
     </div>
   );
 }
