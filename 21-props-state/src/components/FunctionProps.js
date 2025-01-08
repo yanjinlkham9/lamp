@@ -34,4 +34,25 @@ export function FunctionProps3({ name, number, krPrice }) {
     </div>
   );
 }
-export function FunctionProps4() {}
+export function FunctionProps4({
+  name,
+  number = 20,
+  krPrice = 213094, //기본값 설정값
+  children,
+}) {
+  return (
+    <div>
+      <h5>{name}</h5>
+      <p>
+        {number} 개에 {krPrice}원
+      </p>
+      <p>children 요소: {children}</p>
+      <hr />
+    </div>
+  );
+}
+
+// FunctionProps4.defaultProps = {
+//   krPrice: 15000,
+//   number: 10,
+// };

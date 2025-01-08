@@ -17,6 +17,12 @@ function App() {
       <FunctionProps name="사과" number={5} krPrice={10000} />
       <FunctionProps2 name="오렌지" number={2} krPrice={7000} />
       <FunctionProps3 name="바나나" number={8} krPrice={5000} />
+      <FunctionProps4 name="샤인머스캣" number={1} krPrice={15000}>
+        <span style={{ color: "red" }}>childrennn요소입니다 </span>{" "}
+      </FunctionProps4>
+      <FunctionProps4 name="샤인머스캣">
+        <span style={{ color: "red" }}>childrennn요소입니다 </span>{" "}
+      </FunctionProps4>
     </div>
   );
 }
