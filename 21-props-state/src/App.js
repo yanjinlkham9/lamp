@@ -9,6 +9,8 @@
 // import FunctionState from "./components/FunctionState";
 import ClassStatePrac from "./components/practice/ClassStatePrac";
 import FuncStatePrac from "./components/practice/FuncStatePrac";
+import SyntheticEvent from "./components/SyntheticEvent";
+import Counter from "./Counter";
 
 function App() {
   return (
@@ -40,6 +42,13 @@ function App() {
       <ClassStatePrac />
       <h2>FunctionStatePractice</h2>
       <FuncStatePrac />
+      <h2>SyntheticEvent</h2>
+      <SyntheticEvent />
+      <hr />
+      <hr />
+      <hr />
+      <h2>Counter</h2>
+      <Counter />
     </div>
   );
 }
