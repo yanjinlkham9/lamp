@@ -1,17 +1,19 @@
-import { ClassProps, ClassProps2 } from "./components/ClassProps";
-import ClassState from "./components/ClassState";
-import {
-  FunctionProps,
-  FunctionProps2,
-  FunctionProps3,
-  FunctionProps4,
-} from "./components/FunctionProps";
-import FunctionState from "./components/FunctionState";
+// import { ClassProps, ClassProps2 } from "./components/ClassProps";
+// import ClassState from "./components/ClassState";
+// import {
+//   FunctionProps,
+//   FunctionProps2,
+//   FunctionProps3,
+//   FunctionProps4,
+// } from "./components/FunctionProps";
+// import FunctionState from "./components/FunctionState";
+import ClassStatePrac from "./components/practice/ClassStatePrac";
+import FuncStatePrac from "./components/practice/FuncStatePrac";
 
 function App() {
   return (
     <div>
-      <h2>Props 사용</h2>
+      {/* <h2>Props 사용</h2>
       <h3>class형 props 사용해보기</h3>
       <ClassProps name="루피" color="pink" nickname="공주" />
 
@@ -31,7 +33,13 @@ function App() {
       <h3>class형 state</h3>
       <ClassState></ClassState>
       <h3>함수형 state</h3>
-      <FunctionState />
+      <FunctionState /> */}
+
+      <h2>Practice</h2>
+      <h2>ClassStatePractice</h2>
+      <ClassStatePrac />
+      <h2>FunctionStatePractice</h2>
+      <FuncStatePrac />
     </div>
   );
 }
