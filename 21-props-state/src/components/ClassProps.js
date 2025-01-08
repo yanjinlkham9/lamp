@@ -37,4 +37,8 @@ class ClassProps2 extends Component {
   }
 }
 
+ClassProps2.defaultProps = {
+  fontColor: "beige",
+};
+
 export { ClassProps, ClassProps2 };
