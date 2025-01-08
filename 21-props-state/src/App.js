@@ -7,11 +7,16 @@
 //   FunctionProps4,
 // } from "./components/FunctionProps";
 // import FunctionState from "./components/FunctionState";
+import Emoji from "./components/ex/Emoji";
+import FontColor from "./components/ex/FontColor";
+import HandlerEx from "./components/ex/HandlerEx";
+import Hide from "./components/ex/Hide";
 import ClassStatePrac from "./components/practice/ClassStatePrac";
 import FuncStatePrac from "./components/practice/FuncStatePrac";
+// import { Props1 } from "./components/practice/Props1";
 import SyntheticEvent from "./components/SyntheticEvent";
 import Counter from "./Counter";
-
+import PororoObj from "./components/ex/memberChange";
 function App() {
   return (
     <div>
@@ -49,6 +54,13 @@ function App() {
       <hr />
       <h2>Counter</h2>
       <Counter />
+
+      <h2>PRACTICE</h2>
+      <HandlerEx />
+      <FontColor />
+      <Hide />
+      <Emoji />
+      <PororoObj />
     </div>
   );
 }
