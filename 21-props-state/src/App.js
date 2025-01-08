@@ -6,6 +6,7 @@ import {
   FunctionProps3,
   FunctionProps4,
 } from "./components/FunctionProps";
+import FunctionState from "./components/FunctionState";
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
       </FunctionProps4>
 
       <h2>State사용</h2>
+      <h3>class형 state</h3>
       <ClassState></ClassState>
+      <h3>함수형 state</h3>
+      <FunctionState />
     </div>
   );
 }
