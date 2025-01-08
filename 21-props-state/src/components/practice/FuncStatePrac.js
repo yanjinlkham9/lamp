@@ -6,6 +6,9 @@ export default function FuncStatePrac() {
   };
   const decrease = () => {
     setNum(num - 2);
+    // setNum((prevState) => {
+    //   return prevState - 2;
+    // });
   };
   return (
     <div>
