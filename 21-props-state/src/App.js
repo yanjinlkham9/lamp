@@ -1,11 +1,11 @@
 // import { ClassProps, ClassProps2 } from "./components/ClassProps";
 // import ClassState from "./components/ClassState";
-// import {
-//   FunctionProps,
-//   FunctionProps2,
-//   FunctionProps3,
-//   FunctionProps4,
-// } from "./components/FunctionProps";
+import {
+  FunctionProps,
+  FunctionProps2,
+  FunctionProps3,
+  FunctionProps4,
+} from "./components/FunctionProps";
 // import FunctionState from "./components/FunctionState";
 import Emoji from "./components/ex/Emoji";
 import FontColor from "./components/ex/FontColor";
@@ -18,7 +18,15 @@ import SyntheticEvent from "./components/SyntheticEvent";
 import Counter from "./Counter";
 import PororoObj from "./components/ex/memberChange";
 import ChangePic from "./components/ex/ChangePic";
+import PropsMap from "./components/PropsMap";
+import PropsMap2 from "./components/PropsMap2";
 function App() {
+  const arr = [
+    { name: "peach", krPrice: 10000, number: 5 },
+    { name: "strawberry", krPrice: 15000, number: 1 },
+    { name: "pear", krPrice: 5000, number: 3 },
+    { name: "apple", krPrice: 20000, number: 3 },
+  ];
   return (
     <div>
       {/* <h2>Props 사용</h2>
@@ -64,6 +72,14 @@ function App() {
       <PororoObj />
       <br />
       <ChangePic />
+
+      <hr />
+      <hr />
+      <hr />
+      <h2>20250110 MAP</h2>
+      <PropsMap arr={arr} />
+      <FunctionProps2 arr={arr} />
+      <PropsMap2 arr={arr} />
     </div>
   );
 }
