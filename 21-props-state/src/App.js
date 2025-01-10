@@ -20,6 +20,7 @@ import PororoObj from "./components/ex/memberChange";
 import ChangePic from "./components/ex/ChangePic";
 import PropsMap from "./components/PropsMap";
 import PropsMap2 from "./components/PropsMap2";
+import Alphabet from "./components/Alphabet";
 function App() {
   const arr = [
     { name: "peach", krPrice: 10000, number: 5 },
@@ -80,6 +81,8 @@ function App() {
       <PropsMap arr={arr} />
       <FunctionProps2 arr={arr} />
       <PropsMap2 arr={arr} />
+      <h3>Component Alphabet</h3>
+      <Alphabet />
     </div>
   );
 }
