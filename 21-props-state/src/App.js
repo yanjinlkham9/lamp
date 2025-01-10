@@ -17,6 +17,7 @@ import FuncStatePrac from "./components/practice/FuncStatePrac";
 import SyntheticEvent from "./components/SyntheticEvent";
 import Counter from "./Counter";
 import PororoObj from "./components/ex/memberChange";
+import ChangePic from "./components/ex/ChangePic";
 function App() {
   return (
     <div>
@@ -61,6 +62,8 @@ function App() {
       <Hide />
       <Emoji />
       <PororoObj />
+      <br />
+      <ChangePic />
     </div>
   );
 }
