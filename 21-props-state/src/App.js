@@ -21,6 +21,8 @@ import ChangePic from "./components/ex/ChangePic";
 import PropsMap from "./components/PropsMap";
 import PropsMap2 from "./components/PropsMap2";
 import Alphabet from "./components/Alphabet";
+import MapPrac1 from "./components/practice/MapPrac1";
+import MapPrac2 from "./components/practice/MapPrac2";
 function App() {
   const arr = [
     { name: "peach", krPrice: 10000, number: 5 },
@@ -83,6 +85,11 @@ function App() {
       <PropsMap2 arr={arr} />
       <h3>Component Alphabet</h3>
       <Alphabet />
+      <hr />
+      <hr />
+      <h2>Map Practice</h2>
+      <MapPrac1 />
+      <MapPrac2 />
     </div>
   );
 }
