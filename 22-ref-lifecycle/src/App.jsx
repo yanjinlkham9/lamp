@@ -2,6 +2,7 @@ import { RefClass1, RefClass2 } from "./components/RefClass";
 import { RefFunction1, RefFunction2 } from "./components/RefFunction";
 import { LifeCycleClass } from "./components/LifecycleClass.jsx";
 import LifeCycleFunction from "./components/LifeCycleFunction.jsx";
+import Test from "./components/Test.jsx";
 function App() {
   return (
     <div>
@@ -13,6 +14,7 @@ function App() {
       <br />
       <LifeCycleClass />
       <LifeCycleFunction />
+      <Test />
     </div>
   );
 }
