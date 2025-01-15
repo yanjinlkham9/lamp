@@ -11,6 +11,20 @@ export default function Sass() {
         <button className="btn btn--opacity">Button2</button>
         <button className="btn btn--blue">Button3</button>
       </div>
+      <div className="container">
+        <div className="box1"></div>
+        <div className="box1"></div>
+        <div className="box1"></div>
+
+        <p className="circle"></p>
+        <p className="circle"></p>
+        <p className="circle"></p>
+
+        <div className="box2">1</div>
+        <div className="box2">2</div>
+        <div className="box2">3</div>
+        <div className="box2">4</div>
+      </div>
     </>
   );
 }
