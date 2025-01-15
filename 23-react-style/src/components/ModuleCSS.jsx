@@ -1,4 +1,4 @@
-import style from "../components/style/style.module.css";
+import style from "../style/style.module.css";
 import classNames from "classnames";
 import Names from "classnames/bind";
 

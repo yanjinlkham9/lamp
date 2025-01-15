@@ -1,7 +1,7 @@
 import BasicCSS from "./components/BasicCSS";
 import ModuleCSS from "./components/ModuleCSS";
 import Sass from "./components/Sass";
-import "./components/style/basic_css.css";
+import "./style/basic_css.css";
 import StyledComponent from "./components/StyledComponent";
 import Practice from "./practice/Practice1";
 function App() {
