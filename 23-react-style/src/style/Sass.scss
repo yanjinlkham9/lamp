@@ -1,0 +1,52 @@
+@import "util";
+h4 {
+  color: aquamarine;
+}
+
+.div1 {
+  width: 200px;
+  height: 200px;
+  background-color: $color-red;
+  > .div2 {
+    width: 50%;
+    height: 50%;
+    background-color: $color-orange;
+    .div3 {
+      width: 50%;
+      height: 50%;
+      background-color: $color-yellow;
+    }
+  }
+
+  .btn {
+    //btn class의 공통속성
+    display: inline-block;
+    transition: 0.4s;
+    width: 33%;
+    height: 40px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    font-size: 10px;
+    //.btn.orangered
+    &.orangered {
+      background-color: orangered;
+    }
+    //.btn--opacity
+    &--opacity {
+      background-color: $color-blue;
+      opacity: 0.5;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    //.btn--blue
+    &--blue {
+      background-color: $color-blue;
+    }
+    &:hover {
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+}
