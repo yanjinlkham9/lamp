@@ -1,49 +1,34 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import PostItem from "./PostItem";
-export default function RealPost() {
-  //https://jsonplaceholder.typicode.com/posts
+import "./post_item.scss";
+const PostList = () => {
   const [posts, setPosts] = useState([]);
 
-  //   1. async await 사용해서 useEffect
-  const getPosts = async () => {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    console.log("axios data: ", response.data);
-    setPosts(response.data.slice(0, 10));
-  };
-
-  //2. useEffect 안에서 then. catch 이용
   useEffect(() => {
-    // getPosts();
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => {
-        setPosts(res.data.slice(0, 5));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const getPosts = async () => {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const jsonData = await res.json();
+
+      setPosts(jsonData.slice(0, 10));
+    };
+
+    setTimeout(() => {
+      getPosts();
+    }, 2000);
   }, []);
 
   return (
-    <>
-      <h6>여기는 RealPost</h6>
-      {posts.length === 0 ? (
-        <span>loading</span>
-      ) : (
+    <div className="PostList">
+      <header>Post List</header>
+      {posts.length > 0 ? (
         posts.map((post) => {
-          return (
-            <PostItem
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              body={post.body}
-            />
-          );
+          return <PostItem key={post.id} post={post} />;
         })
+      ) : (
+        <h2>Loading...</h2>
       )}
-    </>
+    </div>
   );
-}
+};
+
+export default PostList;

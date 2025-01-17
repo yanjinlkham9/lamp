@@ -11,7 +11,7 @@ import Prac2 from "./components/practice/Prac2.jsx";
 import Prac3 from "./components/practice/Prac3.jsx";
 function App() {
   return (
-    <div>
+    <div className="App">
       <RefClass1 />
       <RefClass2 />
       <br />

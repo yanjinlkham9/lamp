@@ -1,11 +1,15 @@
-export default function PostItem({ id, title, body }) {
+const PostItem = (props) => {
+  const { post } = props;
+
   return (
-    <div style={{ border: "2px solid blue" }}>
+    <div className="PostItem">
       <div>
-        <span>No. {id}</span>
-        <span>{title}</span>
+        <span className="id">No. {post.id}</span>
+        <span className="title">- {post.title}</span>
       </div>
-      <p>{body}</p>
+      <p className="body">{post.body.slice(0, 120)}...</p>
     </div>
   );
-}
+};
+
+export default PostItem;
