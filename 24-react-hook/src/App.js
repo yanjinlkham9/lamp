@@ -3,8 +3,10 @@ import UseCallbackEx2 from "./components/UseCallbackEx2";
 import UseMemo1 from "./components/UseMemo1";
 import { UseMemoObj } from "./components/UseMemoObj";
 import UseReducer from "./components/UseReducer";
+import useTitle from "./hooks/useTitle.";
 
 function App() {
+  useTitle("Hoook 배워보기");
   return (
     <div className="App">
       {/* <h4>useMemo</h4>
