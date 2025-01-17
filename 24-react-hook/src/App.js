@@ -1,3 +1,5 @@
+import CustomHook from "./components/CustomHook";
+import Form from "./components/Form";
 import UseCallbackEx1 from "./components/UseCallbackEx1";
 import UseCallbackEx2 from "./components/UseCallbackEx2";
 import UseMemo1 from "./components/UseMemo1";
@@ -17,7 +19,11 @@ function App() {
       {/* <UseCallbackEx1 /> */}
       {/* <UseCallbackEx2 /> */}
       <h4>UseReducer</h4>
-      <UseReducer />
+      {/* <UseReducer /> */}
+      <h4 style={{ color: "blueviolet" }}>custom hook: useToggle</h4>
+      <CustomHook />
+      <h3>React FORM</h3>
+      <Form />
     </div>
   );
 }
