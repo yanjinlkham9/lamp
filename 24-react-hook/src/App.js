@@ -1,5 +1,6 @@
 import CustomHook from "./components/CustomHook";
 import Form from "./components/Form";
+import FormPrac from "./components/FormPrac";
 import UseCallbackEx1 from "./components/UseCallbackEx1";
 import UseCallbackEx2 from "./components/UseCallbackEx2";
 import UseMemo1 from "./components/UseMemo1";
@@ -24,6 +25,7 @@ function App() {
       <CustomHook />
       <h3>React FORM</h3>
       <Form />
+      <FormPrac />
     </div>
   );
 }
