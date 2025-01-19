@@ -7,6 +7,8 @@ import UseMemo1 from "./components/UseMemo1";
 import { UseMemoObj } from "./components/UseMemoObj";
 import UseReducer from "./components/UseReducer";
 import useTitle from "./hooks/useTitle.";
+import ProductFilter from "./practice/UseMemoPrac";
+import ShoppingCartApp from "./practice/UseCallbackPrac";
 
 function App() {
   useTitle("Hoook 배워보기");
@@ -26,6 +28,10 @@ function App() {
       <h3>React FORM</h3>
       <Form />
       <FormPrac />
+      <h3>useMemo Practice</h3>
+      <ProductFilter />
+      <h3>useCallback Practice</h3>
+      <ShoppingCartApp />
     </div>
   );
 }
