@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { countMinus, countPlus } from "../store/module/counterReducer";
 
 export function Box1() {
   return (
@@ -21,7 +22,7 @@ export function Box2() {
   const count = useSelector((state) => state.count);
   console.log("count", count);
   console.log("isData", isData);
-
+  console.log("countPlus", countPlus);
   const dispatch = useDispatch();
   return (
     <div style={{ border: "1px solid skyblue", padding: "10px" }}>
@@ -37,6 +38,10 @@ export function Box2() {
       <button onClick={() => dispatch({ type: "isData/CHANGE" })}>
         to {(!isData).toString()}
       </button>
+      <br />
+      <h5>action return 함수 사용</h5>
+      <button onClick={() => dispatch(countPlus())}>count +1</button>
+      <button onClick={() => dispatch(countMinus())}>count -1</button>
     </div>
   );
 }
