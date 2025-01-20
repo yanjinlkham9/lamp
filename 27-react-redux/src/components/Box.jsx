@@ -13,6 +13,9 @@ export function Box2() {
   //combineReducers의 인자로 전달했던 객체의 key ..>> isData, count
   //   console.log(state); //{isData: false, count: 1}
 
+  //*useSelector: store에 저장돼 있는 state를 가져오기
+  //*useDispatch: action을 전달하기 위한 dispatch 함수 제공
+  //  -dispatch: action을 reducer에게 전달해주는 함수
   //여러개가 저장되어 있는 store에서 특정한 state만 가지고 오는 것
   const isData = useSelector((state) => state.isData);
   const count = useSelector((state) => state.count);
