@@ -18,6 +18,7 @@ function App() {
       <RefFunction1 />
       <RefFunction2 />
       <br />
+      <h4>Lifecycle</h4>
       <LifeCycleClass />
       <LifeCycleFunction />
       <Test />
