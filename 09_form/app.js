@@ -80,5 +80,5 @@ app.post("/practice4", function (req, res) {
 });
 // 8080-r oroh servert holbogdoh
 app.listen(PORT, function () {
-  console.log(`http://localhost${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });

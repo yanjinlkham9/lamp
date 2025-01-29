@@ -16,7 +16,7 @@ const server = http.createServer(function(request, response){
     try{
         //try 문
         //실행코드
-        const data = fs.readFileSync('./inde.html')  //html file run
+        const data = fs.readFileSync('./index.html')  //html file run
         response.end(data)
     }
     catch(err){
