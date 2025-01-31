@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Practice from "./pages/Practice";
 import Lecture from "./pages/Lecture";
 
+
+
 function App() {
   return (
     <div>
@@ -10,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/practice" element={<Practice />}></Route>
         <Route path="/lecture" element={<Lecture />}></Route>
+       
       </Routes>
     </div>
   );
