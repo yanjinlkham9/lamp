@@ -10,3 +10,10 @@ export interface PostItemInterface{
   title: string;
   body: string;
 }
+
+export interface MatzipInterface{
+  idx?: number;
+  imgSrc: string;
+  title: string;
+  desc: string;
+}
