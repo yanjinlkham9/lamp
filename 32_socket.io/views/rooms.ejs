@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채팅방</title>
+    <!-- socket io CDN -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <!-- ~가 입장 -->
+    <div id="users"></div>
+    <!-- 채팅방 내용 -->
+    <div id="space"></div>
+    <form id="chat">
+      <input type="text" id="message" placeholder="채팅 작성" />
+      <button>send</button>
+    </form>
+
+    <script>
+      const chattingRoom = prompt("채팅방을 입력하세요");
+      const socket = io();
+      const users = document.querySelector("#users");
+      const space = document.querySelector("#space");
+      const chat = document.querySelector("#chat");
+
+      //어떤 채팅방인지 보여주기
+      const h2 = document.createElement("h2");
+      h2.innerText = `채팅방  ${chattingRoom}입니다`;
+      document.body.prepend(h2);
+
+      //1. client > server : chatting Room name만 보내기 : string
+      socket.emit("join", chattingRoom);
+
+      //4. server > client: 입장 알람 받기
+      socket.on("userjoin", (notice) => {
+        const p = document.createElement("p");
+        p.innerHTML = notice;
+        users.append(p);
+      });
+    </script>
+  </body>
+</html>

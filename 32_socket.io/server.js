@@ -18,7 +18,9 @@ app.get("/", (req, res) => {
 app.get("/practice1", (req, res) => {
   res.render("client-p");
 });
-
+app.get("/chat-room", (req, res) => {
+  res.render("rooms");
+});
 //socket code 작성
 io.on("connection", (socket) => {
   //   console.log(socket);
@@ -68,6 +70,24 @@ io.on("connection", (socket) => {
   socket.on("bye", (msg) => {
     console.log("client: ", msg);
     socket.emit("bye2", msg);
+  });
+
+  //------방있는 채팅--------
+  //   console.log("socket.rooms::", socket.rooms);
+  // 방이 없을 때 {socket.id} 정보만 들어와있어
+
+  socket.on("join", (roomname) => {
+    //2.  서버에서  방 열기기
+    //join(): 같은 방에 들어가 있는 사람들끼리 통신할 수 있도록
+    socket.join(roomname); //방 열기
+    socket.room = roomname; //다른곳에서도 roomname을 확인할 수 있도록 정보 추가
+    // console.log("socket.rooms::", socket.rooms); // { 'gHlgueQLaKkVwz15AAAF', '1' }
+
+    //3-1. 입장 메시지 모두에게 보내기 (server > client)
+    // io.to(roomname).emit("userjoin", `[${socket.id}] 입장`);
+    //3-2. 입장 메시지 나를 재외하고 보내기 (server > client)
+    //broadcast: 내가 재외
+    socket.broadcast.to(roomname).emit("userjoin", `[${socket.id}] 입장`);
   });
 });
 
