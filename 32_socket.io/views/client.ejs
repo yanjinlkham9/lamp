@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket IO emit, on 기본</title>
+    <!-- socket io CDN -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <ul></ul>
+    <form id="chat">
+      <input type="text" id="user" placeholder="사용자명" />
+      <input type="text" id="message" placeholder="채팅내용" />
+      <button type="submit">send</button>
+    </form>
+    <script>
+      //io() 함수가 소켓 생성 및 연결 설정
+      const socket = io();
+      //[on 과 emit 사용해보기]
+      //event 발생시키는 중, server로 데이터 전달
+      socket.emit(
+        "event_name",
+        "hello",
+        12,
+        { name: "qwer" },
+        (res1, res2, res3) => {
+          console.log(res1);
+          console.log(res2);
+          console.log(res3);
+        }
+      );
+      //2. client> server
+      // 데이터를 다시 받아주는 콜백이 없을 때
+      socket.emit("cb_test", "안녕하세요");
+
+      //3-1 server > client client 전전체에게
+      //연결된 모든 클라이언트에게 보내기기
+      socket.on("entire_client", (msg) => {
+        console.log("3.1.entire_client", msg);
+      });
+      //3-2 server > client client 하나에게게
+      socket.on("one_client", (msg) => {
+        console.log("3.2.one_client", msg);
+      });
+      //----채팅 만들기---------
+      socket.emit(
+        "new_message1",
+        { name: "client", message: "server 접속" },
+        (arg) => {
+          console.log(arg);
+        }
+      );
+      const chatForm = document.querySelector("#chat");
+      const user = chatForm.querySelector("#user");
+      const message = chatForm.querySelector("#message");
+      const ul = document.querySelector("ul");
+
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        //1. 나의 메시지가 나에게만 보임
+        socket.emit(
+          "new_message1",
+          {
+            name: user.value,
+            message: message.value,
+          },
+          (data) => {
+            //data: name, message 가지고 있는 객체체
+            const li = document.createElement("li");
+            li.textContent = `${data.name}: ${data.message}`;
+            ul.append(li);
+            li.style.color = "blue";
+          }
+        );
+        //나의 메시지가 모두에게 보이기
+        socket.emit("new_message2", {
+          name: user.value,
+          message: message.value,
+        });
+        socket.on("message_render", (data) => {
+          //data: {name, message}
+          const li = document.createElement("li");
+          li.textContent = `${data.name}: ${data.message}`;
+          ul.append(li);
+          li.style.color = "red";
+        });
+      });
+    </script>
+  </body>
+</html>
