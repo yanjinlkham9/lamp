@@ -40,7 +40,7 @@ app.post("/api/users", async (req, res) => {
 });
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("테이블 생성 완료!");
     app.listen(PORT, () => {
