@@ -38,6 +38,22 @@
         p.innerHTML = notice;
         users.append(p);
       });
+
+      //5.client>server 채팅 메세지 보내기
+      chat.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = chat.querySelector("#message");
+        socket.emit("message", msg.value);
+
+        msg.value = "";
+      });
+
+      //7. 전체 메세지받아서 화면에 보여주기
+      socket.on("message_toAll", (msg, id) => {
+        const p = document.createElement("p");
+        p.innerHTML = `<b>${id}</b>: ${msg}`;
+        space.append(p);
+      });
     </script>
   </body>
 </html>

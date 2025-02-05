@@ -89,6 +89,16 @@ io.on("connection", (socket) => {
     //broadcast: 내가 재외
     socket.broadcast.to(roomname).emit("userjoin", `[${socket.id}] 입장`);
   });
+
+  //6. client>server: message 받아주고 전체 client에게 메세지를 보내기
+  socket.on("message", (msg) => {
+    console.log("clinet msg::", msg);
+
+    //내가 포함된 room>>socket.room
+    console.log("내가 포함된 방:", socket.room);
+    //나 포함 전체에게 보내는 메세지 전달
+    io.to(socket.room).emit("message_toAll", msg, socket.id);
+  });
 });
 
 server.listen(PORT, () => {
