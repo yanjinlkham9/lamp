@@ -12,10 +12,10 @@ const io = require("socket.io")(server);
 app.set("view engine", "ejs");
 
 //api
-// app.get("/", (req, res) => {
-//   res.render("client");
-// });
 app.get("/", (req, res) => {
+  res.render("client");
+});
+app.get("/practice1", (req, res) => {
   res.render("client-p");
 });
 
@@ -51,10 +51,23 @@ io.on("connection", (socket) => {
     io.emit("message_render", arg);
   });
 
-  //practice
-  socket.on("prac", (arg, cb) => {
-    console.log("client:", arg);
-    cb(arg);
+  //---------practice1---------------
+  //   socket.on("prac", (arg, cb) => {
+  //     console.log("client:", arg);
+  //     cb(arg);
+  //   });
+
+  socket.on("hello", (msg, cb) => {
+    console.log("client: ", msg);
+    cb(msg);
+  });
+  socket.on("study", (msg) => {
+    console.log("client: ", msg);
+    socket.emit("study2", msg);
+  });
+  socket.on("bye", (msg) => {
+    console.log("client: ", msg);
+    socket.emit("bye2", msg);
   });
 });
 

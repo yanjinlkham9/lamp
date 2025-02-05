@@ -14,6 +14,7 @@
       <input type="text" id="message" placeholder="채팅내용" />
       <button type="submit">send</button>
     </form>
+
     <script>
       //io() 함수가 소켓 생성 및 연결 설정
       const socket = io();
@@ -78,13 +79,13 @@
           name: user.value,
           message: message.value,
         });
-        socket.on("message_render", (data) => {
-          //data: {name, message}
-          const li = document.createElement("li");
-          li.textContent = `${data.name}: ${data.message}`;
-          ul.append(li);
-          li.style.color = "red";
-        });
+      });
+      socket.on("message_render", (data) => {
+        //data: {name, message}
+        const li = document.createElement("li");
+        li.textContent = `${data.name}: ${data.message}`;
+        ul.append(li);
+        li.style.color = "red";
       });
     </script>
   </body>

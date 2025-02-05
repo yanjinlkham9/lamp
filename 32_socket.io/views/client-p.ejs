@@ -3,43 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client-p</title>
+    <title>practice1</title>
     <!-- socket io CDN -->
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <div>
-      <h3>hello world</h3>
-      <button id="hello">hello</button>
-      <button id="study">study</button>
-      <button id="bye">bye</button>
-      <div></div>
-    </div>
+    <h2>hello world</h2>
+    <button onclick="hello()">hello</button>
+    <button onclick="study()">study</button>
+    <button onclick="bye()">bye</button>
+    <h3></h3>
     <script>
       const socket = io();
-      const div = document.querySelector("div");
-      const hello = document.querySelector("#hello");
-      const study = document.querySelector("#study");
-      const bye = document.querySelector("#bye");
-      const div1 = document.createElement("div");
-      hello.addEventListener("click", () => {
-        socket.emit("prac", "hello", (data) => {
-          div1.textContent = `${data}: hello`;
-          div.append(div1);
+      const h3 = document.querySelector("h3");
+
+      //   const div = document.querySelector("div");
+      //   const hello = document.querySelector("#hello");
+      //   const study = document.querySelector("#study");
+      //   const bye = document.querySelector("#bye");
+
+      //   hello.addEventListener("click", () => {
+      //     socket.emit("prac", "hello", (data) => {
+      //       div1.textContent = `${data}: hello`;
+      //       div.append(div1);
+      //     });
+      //   });
+      //   study.addEventListener("click", () => {
+      //     socket.emit("prac", "study", (data) => {
+      //       div1.textContent = `${data}: study`;
+      //       div.append(div1);
+      //     });
+      //   });
+      //   bye.addEventListener("click", () => {
+      //     socket.emit("prac", "bye", (data) => {
+      //       div1.textContent = `${data}: bye`;
+      //       div.append(div1);
+      //     });
+      //   });
+
+      function hello() {
+        socket.emit("hello", "hello", (msg) => {
+          h3.textContent = `hello: ${msg}`;
         });
-      });
-      study.addEventListener("click", () => {
-        socket.emit("prac", "study", (data) => {
-          div1.textContent = `${data}: study`;
-          div.append(div1);
+      }
+      function study() {
+        socket.emit("study", "study");
+        socket.on("study2", (msg) => {
+          h3.textContent = `study: ${msg}`;
         });
-      });
-      bye.addEventListener("click", () => {
-        socket.emit("prac", "bye", (data) => {
-          div1.textContent = `${data}: bye`;
-          div.append(div1);
+      }
+      function bye() {
+        socket.emit("bye", "bye");
+        socket.on("bye2", (msg) => {
+          h3.textContent = `bye: ${msg}`;
         });
-      });
+      }
     </script>
   </body>
 </html>
