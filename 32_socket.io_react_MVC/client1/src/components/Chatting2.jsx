@@ -54,6 +54,7 @@ export default function Chatting2() {
     socket.emit("checkNick", nickNameInput);
   };
 
+  //
   useEffect(() => {
     socket.on("error", (errorMsg) => {
       alert(errorMsg);

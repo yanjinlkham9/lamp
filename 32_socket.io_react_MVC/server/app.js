@@ -2,7 +2,7 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const PORT = 8080;
-const socketHandler = require("./socket/index2"); //socket 처리 추가
+const socketHandler = require("./socket/index3"); //socket 처리 추가
 const indexRouter = require("./routes");
 
 const app = express();
