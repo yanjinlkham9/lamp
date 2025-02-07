@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import Start from "./components/Start";
 import Practice from "./components/Practice";
-import Chatting1 from "./components/Chatting1";
+import Chatting2 from "./components/Chatting2";
 
 function App() {
   return (
@@ -9,7 +9,8 @@ function App() {
       <h1>socket</h1>
       {/* <Start /> */}
       {/* <Practice /> */}
-      <Chatting1 />
+      {/* <Chatting1 /> */}
+      <Chatting2 />
     </div>
   );
 }
