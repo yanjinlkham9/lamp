@@ -21,8 +21,17 @@ export default function Practice() {
     socket.on("hello2", (str) => {
       setFromServerStr(str);
     });
+    //unmount 될ㄸㅐ socket을 없애
+    return () => {
+      socket.off("bye2");
+      socket.off("study2");
+      socket.off("hello2");
+    };
   }, []);
-
+  //eventhandler 중복 등록될 수 있기 때문에 useEffect()안엣 ㅏ 작성해야함
+  //   socket.on("hello2", (str) => {
+  //     setFromServerStr(str);
+  //   });
   const events = ["bye", "study", "hello"];
   const emitToServer = (eventName) => {
     socket.emit(eventName, eventName);
