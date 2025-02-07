@@ -72,7 +72,7 @@
       }
 
       .container .msg-form input {
-        flex-basis: 80%;
+        flex-basis: 75%;
         border: none;
         border-radius: 90px;
         padding: 8px 16px;
@@ -84,7 +84,7 @@
       }
 
       .container .msg-form button {
-        flex-basis: 15%;
+        flex-basis: 12%;
         border: none;
         border-radius: 3px;
       }
@@ -126,6 +126,17 @@
         margin: 8px auto;
         font-size: 14px;
       }
+      /* 실습5. dm기능 css */
+      .container .msg-form #dm-select {
+        flex-basis: 12%;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        text-align: center;
+      }
+      .container .speech.other.dm .msg-box {
+        background-color: rgba(255, 255, 255, 0.551);
+      }
     </style>
   </head>
   <body>
@@ -144,6 +155,7 @@
         <span class="msg-box">채팅 내용</span> -->
       </section>
       <form id="msg-form" class="msg-form">
+        <select id="dm-select"></select>
         <input type="text" placeholder="메세지" />
         <button>전송</button>
       </form>
@@ -158,6 +170,8 @@
       const container = document.querySelector(".container");
       const entryBox = document.querySelector(".entry-box");
       const nickInput = document.querySelector("#nickname");
+      const select = document.querySelector("#dm-select");
+
       let myNick; //입장 성공시 내 닉네임 저장장
       //[닉네임 사용]-1
       function join() {
@@ -188,21 +202,33 @@
         e.preventDefault();
         if (input.value.trim() === "") return;
         //[4-1] form이 제출시 메세지 서버에게 보내기
-        socket.emit("send", input.value);
+        //DM 일 떄 객체정보 전달
+        const sendData = {
+          myNick: myNick,
+          dm: select.value, //dm 보내고자 하는 client 소캣아이디
+          msg: input.value,
+        };
+        socket.emit("send", sendData);
         input.value = "";
       });
 
       //   [4-3] 메세지를 전달받고, 내 메세지와 다른 client의 msg-를 구분
       socket.on("message", (data) => {
-        //data: {id, message}
+        //data: {id, message, isDm?}
         console.log(data);
         console.log(socket.id); //나의 아이디
         console.log(data.id === socket.id);
         const div = document.createElement("div");
         const span = document.createElement("span"); //내용용
-        span.innerHTML = data.message;
         span.classList.add("msg-box");
         div.classList.add("speech");
+        if (data.isDm) {
+          //DM일 경우에 말풍선 앞에[귓속말] 단어 보이기
+          span.innerHTML = "[귓속말]" + data.message;
+          div.classList.add("dm");
+        } else {
+          span.innerHTML = data.message;
+        }
 
         if (data.id === myNick) {
           //내가 보낸 메세지지
@@ -219,6 +245,19 @@
         }
         chatContainer.append(div);
         chatContainer.scrollTop = chatContainer.scrollHeight;
+      });
+      //(4) 입장 성공, 모두에게 전체 닉네임 정보 전달
+      socket.on("updateNicks", (nickInfo) => {
+        console.log("nickInfo", nickInfo); //{socket.id: nickname}
+        let option = `<option value="all">전체</option>`;
+        for (let key in nickInfo) {
+          // console.log("key", key);
+          // console.log("value", nickInfo[key]);
+          option += `<option value="${key}">${nickInfo[key]}</option>`;
+        }
+
+        console.log(option);
+        select.innerHTML = option;
       });
     </script>
   </body>

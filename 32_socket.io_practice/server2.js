@@ -39,8 +39,27 @@ io.on("connection", (socket) => {
   });
 
   //   [4-2] 메세지를 전달받고 전체에 보내기
-  socket.on("send", (msg) => {
-    io.emit("message", { id: nickInfo[socket.id], message: msg });
+  socket.on("send", (msgData) => {
+    // msgData: {myNick, dm="socket.id" 혹인 "all", msg}
+    if (msgData.dm === "all") {
+      //전체에게 메세지 보내기기
+      io.emit("message", { id: msgData.myNick, message: msgData.msg });
+    } else {
+      //특정 client에게만 보내기 (나를 제외)
+      let dmSocketId = msgData.dm;
+      io.to(dmSocketId).emit("message", {
+        id: msgData.myNick,
+        message: msgData.msg,
+        isDm: true,
+      });
+
+      //나에게만 보내기
+      socket.emit("message", {
+        id: msgData.myNick,
+        message: msgData.msg,
+        isDm: true,
+      });
+    }
   });
   //[client 퇴장 공고]
   socket.on("disconnect", () => {
@@ -50,6 +69,8 @@ io.on("connection", (socket) => {
     console.log("deleted?", nickInfo);
     io.emit("updateNicks", nickInfo);
   });
+
+  //[dm 보내기기]
 });
 
 server.listen(PORT, () => {
